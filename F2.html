@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #12c8d5, #e9ecef);
+      color: #f4ee79;
+      line-height: 1.6;
+      padding: 40px 20px;
+      animation: fadeInBody 1.5s ease-in;
+    }
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+    }
+    header, section {
+      background: rgb(229, 68, 68);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      animation: slideIn 0.8s ease forwards;
+      opacity: 0;
+    }
+    header:nth-of-type(1) { animation-delay: 0.2s; }
+    section:nth-of-type(2) { animation-delay: 0.4s; }
+    section:nth-of-type(3) { animation-delay: 0.6s; }
+    section:nth-of-type(4) { animation-delay: 0.8s; }
+    section:nth-of-type(5) { animation-delay: 1s; }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    h1, h2, h3 {
+      color: #212529;
+      margin-bottom: 20px;
+    }
+   
+    ul {
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+    img, video {
+      max-width: 100%;
+      border-radius: 15px;
+      margin-top: 20px;
+      transition: transform 0.3s ease;
+    }
+    img:hover, video:hover {
+      transform: scale(1.03);
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: #0056b3;
+    }
+    #title{
+        font-size: 25px;
+    }
+    p {
+    line-height: 1.8; /* or a value like 28px */
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>👋 Welcome to My Personal Website!</h1>
+      <p>I’m thrilled to have you here. This space is where I share my journey, achievements, and future aspirations. I hope you enjoy getting to know me better!</p>
+      <img src="Photo.jpeg" height="256" width="200" alt="High-Quality Photo">
+      <video controls>
+        <source src="videoplayback.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </header>
+
+    <section>
+      <h2>👤 About Me</h2>
+      <p  id="title"><strong >Name:</strong></p>
+      <hr>
+      <p style="margin-bottom: 10px;"> Swayam Ajit Bhagat</p>
+      <p id="title"><strong>Location:</strong></p>
+      <hr>
+      <p style="margin-bottom: 10px;">Mira Road, Maharashra, India</p>
+      <p><strong>Education:</strong></p>
+      <hr>
+      <ul>
+        <li>B.Tech in Computer Science, St.John College of Science and Commerce, Palghar (Puring)</li>
+        <li>Completed 12th at Thakur College of Science and Commerce</li>
+      </ul>
+      <p><strong>Languages Known:</strong></p>
+      <hr>
+      <p>English (Fluent), Marathi (Fluent), Japanese (Basic)</p>
+    </section>
+
+    <section>
+      <h2>🏆 Achievements</h2>
+      <ul>
+        <li>Participated and Won in Anveshnam 2023 Technical Paper Presentation</li>
+        <li>Graduated with honors or distinction</li>
+        <li>Won a scholarship or academic award</li>
+        <li>Participated in academic competitions</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🚀 Future Goals</h2>
+      <p>I believe in creating meaningful technology that improves lives. My <strong>primary goal</strong> is to become a product designer who builds tools for accessibility and education, especially in underrepresented communities.</p>
+      <p>In the long term, I hope to <strong>launch a startup</strong> focused on inclusive tech solutions and mentor the next generation of women and minority developers. My contribution to the world will be through <strong>empowering others</strong> to learn, grow, and thrive with the help of thoughtful, ethical technology.</p>
+    </section>
+
+    <section>
+      <h2>🌟 Personal Side</h2>
+      <h3>🎨 Hobbies</h3>
+      <ul>
+        <li><strong>Digital Art:</strong> I love visual storytelling and often make pixel art.</li>
+        <li><strong>Hiking & Nature Walks:</strong> Being outdoors helps me disconnect, recharge, and gain creative inspiration.</li>
+        <li><strong>Journaling:</strong> It’s a habit that keeps me grounded and self-aware.</li>
+      </ul>
+
+      <h3>👥 Favourite Role Models</h3>
+      <ul>
+        <li><strong>Bill Gates:</strong> For his philanthropy and advocacy in tech and global health.</li>
+        <li><strong>Steve Jobs:</strong> For his vision, storytelling, and dedication to design simplicity.</li>
+        <li><strong>Marie Curie:</strong> For her scientific courage and groundbreaking research despite barriers.</li>
+      </ul>
+
+      <h3>📚 Favourite Books, Websites & Startups</h3>
+      <ul>
+        <li><strong>Books:</strong> "Deep Work" by Cal Newport, "The Design of Everyday Things" by Don Norman</li>
+        <li><strong>Websites:</strong> <a href="https://www.smashingmagazine.com">Smashing Magazine</a>, <a href="https://www.ted.com">TED</a></li>
+        <li><strong>Startups:</strong> Figma – for redefining design collaboration, Notion – for balancing simplicity and power</li>
+      </ul>
+
+      <h3>❤️ Volunteering Experience</h3>
+      <p>I regularly volunteer with <strong>Code for Good</strong>, where we help NGOs build tech solutions. I also teach basic programming at a local community center on weekends, helping kids discover the joy of coding.</p>
+    </section>
+  </div>
+</body>
+</html>
