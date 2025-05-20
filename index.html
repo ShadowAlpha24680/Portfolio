@@ -4,7 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Personal Website</title>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- AOS (Animate on Scroll) CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <style>
     * {
       box-sizing: border-box;
@@ -18,6 +27,13 @@
       line-height: 1.6;
       padding: 40px 20px;
       animation: fadeInBody 1.5s ease-in;
+    }
+    .dark-mode {
+      background: #36f155;
+      color: #e0e0e0;
+    }
+    .dark-mode header, .dark-mode section {
+      background: #e9a804;
     }
     @keyframes fadeInBody {
       from { opacity: 0; }
@@ -56,7 +72,6 @@
       color: #212529;
       margin-bottom: 20px;
     }
-   
     ul {
       padding-left: 20px;
       margin-bottom: 15px;
@@ -79,20 +94,38 @@
       text-decoration: underline;
       color: #0056b3;
     }
-    #title{
-        font-size: 25px;
+    #title {
+      font-size: 25px;
     }
     p {
-    line-height: 1.8; /* or a value like 28px */
+      line-height: 1.8;
     }
-
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #ffffff;
+      color: #f19808;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
   </style>
 </head>
 <body>
+  <button class="toggle-btn" onclick="toggleDarkMode()">🌓 Toggle Mode</button>
+
   <div class="container">
-    <header>
+    <header data-aos="fade-up">
       <h1>👋 Welcome to My Personal Website!</h1>
-      <p>I’m thrilled to have you here. This space is where I share my journey, achievements, and future aspirations. I hope you enjoy getting to know me better!</p>
+      <p>I’m thrilled to have you here. This space is where I share my journey, achievements, and future aspirations.</p>
       <img src="Photo.jpeg" height="256" width="200" alt="High-Quality Photo">
       <video controls>
         <source src="videoplayback.mp4" type="video/mp4">
@@ -100,18 +133,18 @@
       </video>
     </header>
 
-    <section>
+    <section data-aos="fade-up">
       <h2>👤 About Me</h2>
-      <p  id="title"><strong >Name:</strong></p>
+      <p id="title"><strong>Name:</strong></p>
       <hr>
-      <p style="margin-bottom: 10px;"> Swayam Ajit Bhagat</p>
+      <p>Swayam Ajit Bhagat</p>
       <p id="title"><strong>Location:</strong></p>
       <hr>
-      <p style="margin-bottom: 10px;">Mira Road, Maharashra, India</p>
+      <p>Mira Road, Maharashtra, India</p>
       <p><strong>Education:</strong></p>
       <hr>
       <ul>
-        <li>B.Tech in Computer Science, St.John College of Science and Commerce, Palghar (Puring)</li>
+        <li>B.Tech in Computer Science, St. John College, Palghar (Pursuing)</li>
         <li>Completed 12th at Thakur College of Science and Commerce</li>
       </ul>
       <p><strong>Languages Known:</strong></p>
@@ -119,48 +152,98 @@
       <p>English (Fluent), Marathi (Fluent), Japanese (Basic)</p>
     </section>
 
-    <section>
+    <section data-aos="fade-up">
       <h2>🏆 Achievements</h2>
       <ul>
-        <li>Participated and Won in Anveshnam 2023 Technical Paper Presentation</li>
+        <li>Won in Anveshnam 2023 Technical Paper Presentation</li>
         <li>Graduated with honors or distinction</li>
         <li>Won a scholarship or academic award</li>
         <li>Participated in academic competitions</li>
       </ul>
     </section>
 
-    <section>
+    <section data-aos="fade-up">
       <h2>🚀 Future Goals</h2>
-      <p>I believe in creating meaningful technology that improves lives. My <strong>primary goal</strong> is to become a product designer who builds tools for accessibility and education, especially in underrepresented communities.</p>
-      <p>In the long term, I hope to <strong>launch a startup</strong> focused on inclusive tech solutions and mentor the next generation of women and minority developers. My contribution to the world will be through <strong>empowering others</strong> to learn, grow, and thrive with the help of thoughtful, ethical technology.</p>
+      <p>I aim to become a product designer building tools for accessibility and education in underrepresented communities.</p>
+      <p>Long-term: Launch a startup and mentor new developers focused on ethical tech and inclusive growth.</p>
     </section>
 
-    <section>
+    <section data-aos="fade-up">
       <h2>🌟 Personal Side</h2>
       <h3>🎨 Hobbies</h3>
       <ul>
-        <li><strong>Digital Art:</strong> I love visual storytelling and often make pixel art.</li>
-        <li><strong>Hiking & Nature Walks:</strong> Being outdoors helps me disconnect, recharge, and gain creative inspiration.</li>
-        <li><strong>Journaling:</strong> It’s a habit that keeps me grounded and self-aware.</li>
+        <li><strong>Digital Art:</strong> I enjoy pixel art and visual storytelling.</li>
+        <li><strong>Hiking & Nature Walks:</strong> For creative inspiration and peace.</li>
+        <li><strong>Journaling:</strong> Helps with reflection and clarity.</li>
       </ul>
 
-      <h3>👥 Favourite Role Models</h3>
+      <h3>👥 Role Models</h3>
       <ul>
-        <li><strong>Bill Gates:</strong> For his philanthropy and advocacy in tech and global health.</li>
-        <li><strong>Steve Jobs:</strong> For his vision, storytelling, and dedication to design simplicity.</li>
-        <li><strong>Marie Curie:</strong> For her scientific courage and groundbreaking research despite barriers.</li>
+        <li><strong>Bill Gates:</strong> Tech + Philanthropy</li>
+        <li><strong>Steve Jobs:</strong> Vision & Simplicity</li>
+        <li><strong>Marie Curie:</strong> Scientific bravery</li>
       </ul>
 
-      <h3>📚 Favourite Books, Websites & Startups</h3>
+      <h3>📚 Favorites</h3>
       <ul>
-        <li><strong>Books:</strong> "Deep Work" by Cal Newport, "The Design of Everyday Things" by Don Norman</li>
+        <li><strong>Books:</strong> "Deep Work", "The Design of Everyday Things"</li>
         <li><strong>Websites:</strong> <a href="https://www.smashingmagazine.com">Smashing Magazine</a>, <a href="https://www.ted.com">TED</a></li>
-        <li><strong>Startups:</strong> Figma – for redefining design collaboration, Notion – for balancing simplicity and power</li>
+        <li><strong>Startups:</strong> Figma, Notion</li>
       </ul>
 
-      <h3>❤️ Volunteering Experience</h3>
-      <p>I regularly volunteer with <strong>Code for Good</strong>, where we help NGOs build tech solutions. I also teach basic programming at a local community center on weekends, helping kids discover the joy of coding.</p>
+      <h3>❤️ Volunteering</h3>
+      <p>I volunteer at Code for Good and teach kids programming on weekends.</p>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>📝 Blog</h2>
+      <ul>
+        <li><a href="#">How I Got Started with Design & Code</a></li>
+        <li><a href="#">My Favorite Tech Tools in 2025</a></li>
+        <li><a href="#">Accessibility in Modern Web Design</a></li>
+      </ul>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>🖼️ Gallery</h2>
+      <div class="gallery-grid">
+        <img src="gallery1.jpg" alt="Gallery Image 1">
+        <img src="gallery2.jpg" alt="Gallery Image 2">
+        <img src="gallery3.jpg" alt="Gallery Image 3">
+      </div>
     </section>
   </div>
+    <section>
+      <h2>📬 Contact Me</h2>
+      <ul style="list-style: none; padding-left: 0; margin-bottom: 20px;">
+        <li><strong>Phone:</strong> <a href="tel:+919082852247">+91 90828 52247</a></li>
+        <li><strong>WhatsApp:</strong> <a href="https://wa.me/919082852247" target="_blank">Chat on WhatsApp</a></li>
+        <li><strong>Email:</strong> <a href="mailto:123swayam2011@sjcem.edu.in">123swayam2011@sjcem.edu.in</a></li>
+      </ul>
+
+      <h3>📍 Location</h3>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7512.311415355165!2d72.7835519!3d19.705993899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1747725879779!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+      <h3>🌐 Social Media</h3>
+      <ul style="list-style: none; padding-left: 0;">
+        <li><a href="https://instagram.com/yourhandle" target="_blank">Instagram</a></li>
+        <li><a href="https://linkedin.com/in/yourhandle" target="_blank">LinkedIn</a></li>
+        <a href="https://github.com/ShadowAlpha24680" target="_blank">
+  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" 
+       alt="GitHub" width="30" height="30" style="vertical-align: middle;">
+  Visit my GitHub
+</a>
+
+      </ul>
+    </section>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
 </body>
 </html>
