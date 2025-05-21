@@ -144,6 +144,59 @@
       gap: 15px;
     }
 
+    /* Sticky Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      padding: 10px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    /* Hamburger Menu Styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 10px;
+    }
+
+    .bar {
+      height: 3px;
+      width: 25px;
+      background-color: #0077b6;
+      margin: 3px 0;
+      transition: 0.4s;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
     /* Responsive Improvements */
     @media (max-width: 768px) {
       body {
@@ -153,7 +206,18 @@
       .toggle-btn {
         top: 10px;
         right: 10px;
-        padding: 8px 12px;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
       }
 
       iframe {
@@ -166,6 +230,22 @@
 <body>
   <button class="toggle-btn" onclick="toggleDarkMode()">🌓 Toggle Mode</button>
 
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#goals">Future Goals</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+
   <div class="container">
     <header data-aos="fade-up">
       <h1>👋 Welcome to My Personal Website!</h1>
@@ -177,7 +257,7 @@
       </video>
     </header>
 
-    <section data-aos="fade-up">
+    <section id="about" data-aos="fade-up">
       <h2>👤 About Me</h2>
       <p id="title"><strong>Name:</strong></p>
       <hr>
@@ -196,7 +276,7 @@
       <p>English (Fluent), Marathi (Fluent), Japanese (Basic)</p>
     </section>
 
-    <section data-aos="fade-up">
+    <section id="achievements" data-aos="fade-up">
       <h2>🏆 Achievements</h2>
       <ul>
         <li>Won in Anveshnam 2023 Technical Paper Presentation</li>
@@ -206,7 +286,7 @@
       </ul>
     </section>
 
-    <section data-aos="fade-up">
+    <section id="goals" data-aos="fade-up">
       <h2>🚀 Future Goals</h2>
       <p>I aim to become a product designer building tools for accessibility and education in underrepresented communities.</p>
       <p>Long-term: Launch a startup and mentor new developers focused on ethical tech and inclusive growth.</p>
@@ -239,7 +319,7 @@
       <p>I volunteer at Code for Good and teach kids programming on weekends.</p>
     </section>
 
-    <section data-aos="fade-up">
+    <section id="blog" data-aos="fade-up">
       <h2>📝 Blog</h2>
       <ul>
         <li><a href="#">How I Got Started with Design & Code</a></li>
@@ -251,13 +331,13 @@
     <section data-aos="fade-up">
       <h2>🖼️ Gallery</h2>
       <div class="gallery-grid">
-        <img src="Photo2.jpeg" height="200" width="450" alt="Gallery Image 1">
-        <img src="Photo3.jpeg" alt="Gallery Image 2">
-        <img src="Photo4.jpeg" alt="Gallery Image 3">
+        <img src="Photo2.jpeg" alt="Gallery Image 1" class="gallery-img">
+        <img src="Photo3.jpeg" alt="Gallery Image 2" class="gallery-img">
+        <img src="Photo4.jpeg" alt="Gallery Image 3" class="gallery-img">
       </div>
     </section>
 
-    <section data-aos="fade-up">
+    <section id="contact" data-aos="fade-up">
       <h2>📬 Contact Me</h2>
       <ul style="list-style: none; padding-left: 0; margin-bottom: 20px;">
         <li><strong>Phone:</strong> <a href="tel:+919082852247">+91 90828 52247</a></li>
@@ -269,14 +349,45 @@
       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7512.311415355165!2d72.7835519!3d19.705993899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1747725879779!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
       <h3>🌐 Social Media</h3>
-      <ul style="list-style: none; padding-left: 0;">
-        <li><a href="https://instagram.com/yourhandle" target="_blank">Instagram</a></li>
-        <li><a href="https://linkedin.com/in/yourhandle" target="_blank">LinkedIn</a></li>
-        <a href="https://github.com/ShadowAlpha24680" target="_blank">
-          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" 
-               alt="GitHub" width="30" height="30" style="vertical-align: middle;">
-          Visit my GitHub
-        </a>
+      <ul style="list-style: none; padding-left: 0; display: flex; justify-content: center;">
+        <li style="margin: 0 15px;">
+          <a href="https://instagram.com/yourhandle" target="_blank" title="Follow me on Instagram">
+            <img src="Insta.png" alt="Instagram" width="30" height="30" style="vertical-align: middle;">
+          </a>
+        </li>
+        <li style="margin: 0 15px;">
+          <a href="https://linkedin.com/in/yourhandle" target="_blank" title="Connect with me on LinkedIn">
+            <img src="Link.png" alt="LinkedIn" width="30" height="30" style="vertical-align: middle;">
+          </a>
+        </li>
+        <li style="margin: 0 15px;">
+          <a href="https://github.com/ShadowAlpha24680" target="_blank" title="Visit my GitHub">
+            <img src="Git.png" alt="GitHub" width="50" height="30" style="vertical-align: middle;">
+          </a>
+        </li>
+      </ul>
+      <p>Follow me for the latest updates!</p>
+
+      <!-- Contact Form -->
+      <h3>📩 Send Me a Message</h3>
+      <form action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section data-aos="fade-up">
+      <h2>💬 Testimonials</h2>
+      <ul>
+        <li>"Swayam is a dedicated and talented individual!" - Mentor</li>
+        <li>"His work on the project was outstanding!" - Peer</li>
+        <li>"A great team player and a quick learner!" - Professor</li>
       </ul>
     </section>
   </div>
@@ -287,6 +398,11 @@
     AOS.init();
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
+    }
+
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('active');
     }
   </script>
 </body>

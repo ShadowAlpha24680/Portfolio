@@ -149,6 +149,15 @@
       body {
         padding: 20px 10px;
       }
+  
+    .gallery-img {
+  width: 100%;
+  height: 180px; /* You can adjust this */
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
 
       .toggle-btn {
         top: 10px;
@@ -251,10 +260,11 @@
     <section data-aos="fade-up">
       <h2>🖼️ Gallery</h2>
       <div class="gallery-grid">
-        <img src="Photo2.jpeg" height="200" width="450" alt="Gallery Image 1">
-        <img src="Photo3.jpeg" alt="Gallery Image 2">
-        <img src="Photo4.jpeg" alt="Gallery Image 3">
-      </div>
+  <img src="Photo2.jpeg" alt="Gallery Image 1" class="gallery-img">
+  <img src="Photo3.jpeg" alt="Gallery Image 2" class="gallery-img">
+  <img src="Photo4.jpeg" alt="Gallery Image 3" class="gallery-img">
+</div>
+
     </section>
 
     <section data-aos="fade-up">
